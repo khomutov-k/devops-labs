@@ -23,14 +23,14 @@ public class ListView extends VerticalLayout {
         String moscowTime = LocalDateTime.now(ZoneId.of("Europe/Moscow"))
                 .format(DateTimeFormatter.ofPattern("d.MM.yyyy HH:mm 'hr'"));
 
-        add(new H2("Current date and time  " + currentTimeString));
-        add(new H2("Moscow date and time is " + moscowTime));
+        add(new H2("Current local date and time  " + currentTimeString));
+        add(new H2("Moscow Time Zone date and time is " + moscowTime));
         Image img = new Image("images/empty-plant.png", "placeholder plant");
         img.setWidth("200px");
         add(img);
 
         add(new H2("This place intentionally left empty"));
-        add(new Paragraph("It’s a place where you can grow the skills 🤗"));
+        add(new Paragraph("🤗"));
 
         setSizeFull();
         setJustifyContentMode(JustifyContentMode.CENTER);

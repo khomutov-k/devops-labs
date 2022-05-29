@@ -1,15 +1,16 @@
 # Devops-java
 
-This project can be used as a starting point to create your own Vaadin application with Spring Boot.
-It contains all the necessary configuration and some placeholder files to get started.
+This project shows application writen solely using Vaadin Java Framework with Spring Boot.
+
+The basic functionality are the same as for python app. It shows current host time and time for Russia/Moscow locale.
 
 ## Running the application
 
 The project is a standard Maven project. To run it from the command line,
-type `mvnw` (Windows), or `./mvnw` (Mac & Linux), then open
-http://localhost:8080 in your browser.
+type `mvnw spring-boot:run` (Windows), or `./mvnw spring-boot:run` (Mac & Linux), then open
+http://localhost:8080 in the browser.
 
-You can also import the project to your IDE of choice as you would with any
+You can also import the project to the IDE of choice as you would with any
 Maven project. Read more on [how to import Vaadin projects to different 
 IDEs](https://vaadin.com/docs/latest/flow/guide/step-by-step/importing) (Eclipse, IntelliJ IDEA, NetBeans, and VS Code).
 
@@ -25,7 +26,7 @@ Once the JAR file is built, you can run it using
 
 ## Project structure
 
-- `views` package in `src/main/java` contains the server-side Java views of your application.
+- `views` package in `src/main/java` contains the server-side Java views of the application.
 - `themes` folder in `frontend/` contains the custom CSS styles.
 
 ## Useful links

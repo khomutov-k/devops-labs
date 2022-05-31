@@ -26,7 +26,7 @@ jobs:
       run: |
         echo The current state of folder
         ls
-        cd ./app-java/
+        cd ./app-java
         mvn clean package -Pproduction 
     - name: Test with maven
       run: mvn verify

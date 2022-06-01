@@ -29,4 +29,6 @@ jobs:
         cd ./app_java
         mvn clean package -Pproduction 
     - name: Test with maven
-      run: mvn verify
+      run: |
+        cd ./app_java
+        mvn verify

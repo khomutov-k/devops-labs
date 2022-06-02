@@ -70,6 +70,10 @@ jobs:
       - name: Login to Docker Hub
         run: docker login -u ${{ secrets.DOCKER_USERNAME }} -p ${{ secrets.DOCKER_PASSWORD }}
       - name: Build Container image
-        run: docker build -t ${{ secrets.DOCKER_REPO }}:latest .
+        run: |
+          cd ./app_java
+          docker build -t ${{ secrets.DOCKER_REPO }}:latest .
       - name: Publish Docker image
-        run: docker push ${{ secrets.DOCKER_REPO }}
+        run: |
+          cd ./app_java
+          docker push ${{ secrets.DOCKER_REPO }}

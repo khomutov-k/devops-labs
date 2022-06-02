@@ -62,7 +62,7 @@ jobs:
       - name: Build Container image
         run: |
           cd ./app_java
-          docker build -t ${{ secrets.DOCKER_REPO }}:latest .
+          DOCKER_BUILDKIT=1 docker build -t ${{ secrets.DOCKER_REPO }}:latest .
       - name: Publish Docker image
         run: |
           cd ./app_java

@@ -59,6 +59,8 @@ Once the JAR file is built, you can run it using
 Current project contains GitHub Actions workflows, which build & test new changes which would be checked in. 
 For this purpose Maven build tool is utilized. 
 
+[![Java CI with Maven](https://github.com/khomutov-k/devops-labs/actions/workflows/CI.yml/badge.svg?branch=lab3-github_actions)](https://github.com/khomutov-k/devops-labs/actions/workflows/CI.yml)
+
 ## 6. Project structure
 
 - `views` package in `src/main/java` contains the server-side Java views of the application.

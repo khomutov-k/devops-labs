@@ -39,8 +39,13 @@ http://localhost:8080 in the browser.
 You can also import the project to the IDE of choice as you would with any
 Maven project. Read more on [how to import Vaadin projects to different 
 IDEs](https://vaadin.com/docs/latest/flow/guide/step-by-step/importing) (Eclipse, IntelliJ IDEA, NetBeans, and VS Code).
+## 3 Testing the application 
+To run unit test it would be required to call `mvnw test` or `./mvnw test` (Mac & Linux), which would trigger _surefire_ plugin,
+and launch _Junit_ tests.
 
-## 3. Deploying to Production
+For the integration test Maven _failsafe_ plugin can be called with in following commands: `mvnw verify` or `./mvnw verify`
+
+## 4. Deploying to Production
 
 To create a production build, call `mvnw clean package -Pproduction` (Windows),
 or `./mvnw clean package -Pproduction` (Mac & Linux).
@@ -50,11 +55,15 @@ ready to be deployed. The file can be found in the `target` folder after the bui
 Once the JAR file is built, you can run it using
 `java -jar target/devops-lab-1.0-SNAPSHOT.jar`
 
-## 4. Project structure
+## 5. Continuous integration
+Current project contains GitHub Actions workflows, which build & test new changes which would be checked in. 
+For this purpose Maven build tool is utilized. 
+
+## 6. Project structure
 
 - `views` package in `src/main/java` contains the server-side Java views of the application.
 - `themes` folder in `frontend/` contains the custom CSS styles.
 
-## 5. Useful links
+## 7. Useful links
 
 - Read the documentation at [vaadin.com/docs](https://vaadin.com/docs).

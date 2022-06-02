@@ -1,5 +1,9 @@
 pipeline {
-    agent { docker { image 'maven:3.8.4-openjdk-11-slim' } }
+    agent any
+     tools {
+            maven 'Maven 3.8.5 def'
+            jdk 'openjdk-11'
+        }
     environment {
         APP_NAME = 'devops-java'
     }

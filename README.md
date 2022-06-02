@@ -1,5 +1,7 @@
 # [Sum22] DevOps Engineering Course
 
+[![Java CI with Maven](https://github.com/khomutov-k/devops-labs/actions/workflows/CI.yml/badge.svg?branch=lab3-github_actions)](https://github.com/khomutov-k/devops-labs/actions/workflows/CI.yml)
+
 Simple applications for Devops course labs 
 
 ## Description

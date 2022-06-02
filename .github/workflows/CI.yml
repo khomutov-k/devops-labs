@@ -41,10 +41,10 @@ jobs:
           cd ./app_java
           mvn -B verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectKey=khomutov-k_devops-labs
           mkdir staging && cp target/*.jar staging
-          - uses: actions/upload-artifact@v1
-          with:
-            name: ArtifactPackage
-            path: ./app_java/staging
+      - uses: actions/upload-artifact@v1
+        with:
+          name: ArtifactPackage
+          path: ./app_java/staging
             
   build-docker-image:
     name: Publish to Docker Hub

@@ -2,7 +2,7 @@ pipeline {
     agent any
      tools {
             maven 'Maven 3.8.5 def'
-            jdk 'openjdk-11'
+            jdk 'openjdk-11/jdk-11'
         }
     environment {
         JAVA_HOME = ''

@@ -5,6 +5,7 @@ pipeline {
             jdk 'openjdk-11'
         }
     environment {
+        JAVA_HOME = ''
         APP_NAME = 'devops-java'
     }
 
@@ -17,6 +18,7 @@ pipeline {
 
         stage ('unit test') {
             steps {
+                sh 'echo $JAVA_HOME'
                 sh 'cd ./app_java'
                 sh 'mvn clean test'
             }

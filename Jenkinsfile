@@ -5,7 +5,6 @@ pipeline {
             jdk 'openjdk-11/jdk-11'
         }
     environment {
-        JAVA_HOME = ''
         APP_NAME = 'devops-java'
     }
 

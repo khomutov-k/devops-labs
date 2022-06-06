@@ -17,15 +17,13 @@ pipeline {
         stage ('unit test') {
             steps {
                 sh 'echo $JAVA_HOME'
-                sh 'cd ./app_java'
-                sh 'mvn clean test'
+                sh 'mvn clean test -f ./app_java/pom.xml'
             }
         }
 
         stage ('build & push') {
             steps {
-                sh 'cd ./app_java'
-                sh 'mvn -Dmaven.test.skip=true package'
+                sh 'mvn -Dmaven.test.skip=true package -f ./app_java/pom.xml'
                 sh 'docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD'
                 sh 'docker build -t $REGISTRY/$DOCKERHUB_NAMESPACE/$APP_NAME:SNAPSHOT .'
             }

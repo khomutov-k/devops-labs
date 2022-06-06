@@ -43,7 +43,7 @@ jobs:
       - name: Build production
         run: |
           cd ./app_java
-          mvn clean package -Pproduction
+          mvn clean package -Pproduction -DskipTests
           mkdir staging && cp target/*.jar staging
       - uses: actions/upload-artifact@v1
         with:

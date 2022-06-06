@@ -2,7 +2,7 @@ pipeline {
     agent any
      tools {
             maven 'Maven 3.2.5'
-            jdk 'jdk-11'
+            jdk 'jdk-11-windows'
         }
     environment {
         APP_NAME = 'devops-java'

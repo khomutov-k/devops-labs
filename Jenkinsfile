@@ -2,19 +2,8 @@ pipeline {
   agent any
   stages {
     stage('checkout scm') {
-      parallel {
-        stage('checkout scm') {
-          steps {
-            checkout scm
-          }
-        }
-
-        stage('') {
-          steps {
-            sh 'sudo apt install nodejs'
-          }
-        }
-
+      steps {
+        checkout scm
       }
     }
 

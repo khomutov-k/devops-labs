@@ -34,3 +34,7 @@ By analyzing the metrics collected by your CI/CD tool you can identify potential
 * Tracking the speed of deployments over time, and monitoring whether they are tending to take longer, can indicate when it's time to invest in performance optimizations.
 * Statistics from automated tests can help to determine areas that would benefit from parallelization.
 * Reviewing tests results to find those that are routinely ignored can identify potential for streamlining your test coverage.
+
+# Jenkins
+
+![img.png](jenkins.png)

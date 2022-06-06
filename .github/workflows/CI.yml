@@ -40,6 +40,10 @@ jobs:
         run: |
           cd ./app_java
           mvn -B verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectKey=khomutov-k_devops-labs
+      - name: Build production
+        run: |
+          cd ./app_java
+          mvn clean package -Pproduction -DskipTests
           mkdir staging && cp target/*.jar staging
       - uses: actions/upload-artifact@v1
         with:

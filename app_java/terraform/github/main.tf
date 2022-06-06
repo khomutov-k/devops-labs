@@ -6,6 +6,10 @@ terraform {
     }
   }
 }
+provider "docker" {
+  host = "npipe:////.//pipe//docker_engine"
+}
+
 resource "docker_image" "devops-labs" {
   name = "konstantinkhomutov/devops-labs:latest"
 }

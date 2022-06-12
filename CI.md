@@ -1,4 +1,3 @@
-# Best Practices 
 
 ### 1. Commit early, commit often
 Making a small changes and delivering a piece of work fast will help to get feedback swiftly, so it would be easier to address the issues in the beginning.

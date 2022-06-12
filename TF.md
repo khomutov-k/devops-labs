@@ -139,3 +139,11 @@ output "rds_cluster_instance_endpoints" {
 ![img.png](pictures/repo_img.png)
 
 ![img_1.png](pictures/branch_img.png)
+
+# Screenshots of VM creating log 
+ Terraform log, when creating virtual machine. 
+![img.png](pictures/vm_log.png)
+
+Yandex cloud console screenshot 
+
+![img.png](pictures/yandex_cloud_vm.png)

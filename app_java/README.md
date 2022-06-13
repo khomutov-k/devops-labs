@@ -31,6 +31,11 @@ Vaadin Flow is an open-source framework for building web apps in Java. One can b
 Spring Framework is highly used in Enterprise development, also it is mature and one of key players in the Java world. 
 
 ## 2. Running the application
+Make sure you have installed Java JDK 1.8+.
+For example, it could be done in Ubuntu with in following command `sudo apt install openjdk-11-jre-headless`.
+To run Frontend NodeJs and npm is required:
+* `sudo apt install node`
+* `sudo apt install node`
 
 The project is a standard Maven project. To run it from the command line,
 type `mvnw spring-boot:run` (Windows), or `./mvnw spring-boot:run` (Mac & Linux), then open

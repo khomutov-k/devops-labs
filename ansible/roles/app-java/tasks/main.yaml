@@ -1,0 +1,10 @@
+---
+
+- name: Docker-compose template copy
+  template:
+    src: templates/docker-compose.yaml.j2
+    dest: compose/docker-compose.yaml
+
+- name: Run docker compose
+  docker_compose:
+    project_src: compose/

@@ -12,6 +12,7 @@ resource "yandex_compute_instance" "default" {
   boot_disk {
     initialize_params {
       image_id = "fd8h34rub6pjpg4qgi8j"
+      size = 8
     }
   }
 

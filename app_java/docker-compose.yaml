@@ -2,7 +2,7 @@ version: "3"
 
 services:
   java_app:
-    image: java-app
+    image: konstantinkhomutov/devops-labs
     ports:
       - "8080:8080"
     networks:

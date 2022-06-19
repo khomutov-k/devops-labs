@@ -1,4 +1,16 @@
 ---
+- name: Add the user 'docker' with a specific uid
+  user:
+    name: docker
+    comment: Docker user
+    uid: 1040
+
+- name: Creates directory
+  file:
+    path: compose/
+    state: directory
+    owner: docker
+    mode: 0775
 
 - name: Docker-compose template copy
   template:

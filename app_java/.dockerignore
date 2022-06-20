@@ -1,0 +1,5 @@
+src/
+.mvn/
+frontend/
+node_modules/
+.idea/

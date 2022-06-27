@@ -1,0 +1,96 @@
+version: "3"
+
+networks:
+  monitoring:
+
+services:
+  app.java:
+    image: konstantinkhomutov/devops-labs
+    ports:
+      - "8080:8080"
+    volumes:
+      - /logs/:/var/log/
+    deploy:
+      resources:
+        limits:
+          cpus: '1.00'
+          memory: 300M
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10m"
+        max-file: "3"
+    networks:
+        - monitoring
+
+  loki:
+    image: grafana/loki:2.5.0
+    ports:
+      - "3100:3100"
+    volumes:
+      - ./loki-config/:/etc/loki/
+    command: -config.file=/etc/loki/local-config.yaml
+    deploy:
+      resources:
+        limits:
+          memory: 80M
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10m"
+        max-file: "3"
+    networks:
+        - monitoring
+
+  promtail:
+    image: grafana/promtail:2.5.0
+    volumes:
+      - /logs/:/var/log
+      - ./promtail-config/:/etc/promtail/
+    command: -config.file=/etc/promtail/config.yml
+    deploy:
+      resources:
+        limits:
+          memory: 30M
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10m"
+        max-file: "3"
+    networks:
+        - monitoring
+
+  prometheus:
+      image: bitnami/prometheus:2.36.2
+      ports:
+        - "9090:9090"
+      volumes:
+        - ./prometheus-config/:/opt/bitnami/prometheus/conf/
+      deploy:
+        resources:
+          limits:
+            memory: 100M
+      logging:
+        driver: "json-file"
+        options:
+          max-size: "10m"
+          max-file: "3"
+      networks:
+          - monitoring
+
+  grafana:
+    image: grafana/grafana:8.5.6
+    ports:
+      - "3000:3000"
+    deploy:
+      resources:
+        limits:
+          memory: 100M
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10m"
+        max-file: "3"
+    networks:
+      - monitoring
+

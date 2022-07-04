@@ -16,6 +16,7 @@ The framework used for this purpose was Flask.
 ### Installing
 
 * To use it one could download source code from this repo.
+* `pip install Flask`
 
 ### Executing program
 
@@ -45,6 +46,6 @@ This project is licensed under the [MIT] License - see the LICENSE.md file for d
 
 ## References
 
-Inspiration, code snippets, etc.
+
 
 

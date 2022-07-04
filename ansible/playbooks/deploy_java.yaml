@@ -1,0 +1,10 @@
+- hosts: all
+
+  roles:
+    - geerlingguy.docker
+    - docker-compose
+    - app-java
+  vars:
+    docker_compose_version: "1.29.2"
+    docker_compose_src: ../templates/docker-compose.yaml.j2
+    docker_image: konstantinkhomutov/devops-labs

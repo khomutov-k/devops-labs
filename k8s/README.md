@@ -1,5 +1,6 @@
 # Screenshots
 ## Lab 9
+
 * Screen of `kubectl get pods,svc`
 
 ![manual](manual-config.png)
@@ -7,6 +8,7 @@
 * Screen of `kubectl get pods,svc` after applying manifest files
 
 ![manifest](config-using-manifest.png)
+
 * Minicube serve screen 
 
 ![minicube](minicube-screen.png)

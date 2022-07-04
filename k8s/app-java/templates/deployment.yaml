@@ -33,33 +33,30 @@ spec:
             {{- toYaml .Values.securityContext | nindent 12 }}
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
           imagePullPolicy: {{ .Values.image.pullPolicy }}
-          env:
-          - name: CRED_USER
-            valueFrom:
-              secretKeyRef:
-                name: user-pass
-                key: username1
-                optional: false
-          - name: CRED_PASS
-            valueFrom:
-              secretKeyRef:
-                name: user-pass
-                key: password1
-                optional: false
+          volumeMounts:
+            - name: config-volume
+              mountPath: "/config/"
           ports:
             - name: http
               containerPort: 8080
               protocol: TCP
-          livenessProbe:
-            httpGet:
-              path: /actuator/health/liveness
-              port: http
-          readinessProbe:
-            httpGet:
-              path: /actuator/health/readiness
-              port: http
+#          livenessProbe:
+#            httpGet:
+#              path: /actuator/health/liveness
+#              port: http
+#            initialDelaySeconds: 10
+#          readinessProbe:
+#            httpGet:
+#              path: /actuator/health/readiness
+#              port: http
+#            initialDelaySeconds: 10
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
+      volumes:
+        - name: config-volume
+          configMap:
+            name: configmap
+
       {{- with .Values.nodeSelector }}
       nodeSelector:
         {{- toYaml . | nindent 8 }}

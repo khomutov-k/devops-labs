@@ -6,7 +6,7 @@ replicaCount: 3
 
 image:
   repository: konstantinkhomutov/devops-labs
-  pullPolicy: IfNotPresent
+  pullPolicy: Always
   # Overrides the image tag whose default is the chart appVersion.
   tag: "latest"
 
@@ -37,8 +37,8 @@ securityContext: {}
   # runAsUser: 1000
 
 service:
-  type: ClusterIP
-  port: 80
+  type: NodePort
+  port: 8080
 
 ingress:
   enabled: false
@@ -64,9 +64,9 @@ resources:
    limits:
      cpu: 500m
      memory: 128Mi
-#   requests:
-#     cpu: 100m
-#     memory: 128Mi
+   requests:
+     cpu: 100m
+     memory: 128Mi
 
 autoscaling:
   enabled: false
@@ -82,7 +82,7 @@ tolerations: []
 affinity: {}
 
 statefulSet:
-  name: java-app
+  name: java-stateful-set
 
 volume:
   name: visits

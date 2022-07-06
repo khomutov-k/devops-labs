@@ -38,21 +38,21 @@ spec:
             - name: config-volume
               mountPath: "/config/"
             - name: {{ .Values.volume.name }}
-              mountPath: "/persistence/"
+              mountPath: "/application/persist/"
           ports:
             - name: http
               containerPort: 8080
               protocol: TCP
-#          livenessProbe:
-#            httpGet:
-#              path: /actuator/health/liveness
-#              port: http
-#            initialDelaySeconds: 10
-#          readinessProbe:
-#            httpGet:
-#              path: /actuator/health/readiness
-#              port: http
-#            initialDelaySeconds: 10
+          livenessProbe:
+            httpGet:
+              path: /actuator/health/liveness
+              port: http
+            initialDelaySeconds: 120
+          readinessProbe:
+            httpGet:
+              path: /actuator/health/readiness
+              port: http
+            initialDelaySeconds: 120
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
       volumes:

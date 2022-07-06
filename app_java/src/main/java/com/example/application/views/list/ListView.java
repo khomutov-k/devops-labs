@@ -1,5 +1,6 @@
 package com.example.application.views.list;
 
+import com.example.application.controller.VisitsController;
 import com.example.application.services.DateService;
 import com.example.application.services.FileWritingService;
 import com.vaadin.flow.component.html.H2;
@@ -34,7 +35,7 @@ public class ListView extends VerticalLayout {
         setJustifyContentMode(JustifyContentMode.CENTER);
         setDefaultHorizontalComponentAlignment(Alignment.CENTER);
         getStyle().set("text-align", "center");
-        VisitsView.counter += 1;
+        VisitsController.counter += 1;
         this.writeService = writeService;
         this.dateService = dateService;
     }

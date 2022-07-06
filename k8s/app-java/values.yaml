@@ -63,10 +63,10 @@ resources:
   # lines, adjust them as necessary, and remove the curly braces after 'resources:'.
    limits:
      cpu: 500m
-     memory: 128Mi
+     memory: 600Mi
    requests:
-     cpu: 100m
-     memory: 128Mi
+     cpu: 500m
+     memory: 600Mi
 
 autoscaling:
   enabled: false
@@ -82,7 +82,9 @@ tolerations: []
 affinity: {}
 
 statefulSet:
-  name: java-stateful-set
+  name: java
+
+podManagementPolicy: Parallel
 
 volume:
   name: visits

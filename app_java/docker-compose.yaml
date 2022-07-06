@@ -1,4 +1,6 @@
 version: "3"
+networks:
+  loki:
 
 services:
   java_app:
@@ -9,6 +11,7 @@ services:
       - loki
     volumes:
       - /logs/:/var/log/
+      - ./persistence/:/application/persist/
 
   loki:
     image: grafana/loki:2.5.0

@@ -1,11 +1,12 @@
 apiVersion: apps/v1
-kind: Deployment
+kind: StatefulSet
 metadata:
   name: {{ include "app-java.fullname" . }}
   labels:
     {{- include "app-java.labels" . | nindent 4 }}
 spec:
   {{- if not .Values.autoscaling.enabled }}
+  serviceName: {{ .Values.statefulSet.name }}
   replicas: {{ .Values.replicaCount }}
   {{- end }}
   selector:
@@ -36,6 +37,8 @@ spec:
           volumeMounts:
             - name: config-volume
               mountPath: "/config/"
+            - name: {{ .Values.volume.name }}
+              mountPath: "/persistence/"
           ports:
             - name: http
               containerPort: 8080
@@ -56,7 +59,14 @@ spec:
         - name: config-volume
           configMap:
             name: configmap
-
+  volumeClaimTemplates:
+  - metadata:
+      name: {{ .Values.volume.name }}
+    spec:
+      accessModes: [ "ReadWriteOnce" ]
+      resources:
+        requests:
+          storage: {{ .Values.volume.storageSize }}
       {{- with .Values.nodeSelector }}
       nodeSelector:
         {{- toYaml . | nindent 8 }}

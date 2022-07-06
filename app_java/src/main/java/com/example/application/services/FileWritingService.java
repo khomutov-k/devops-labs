@@ -17,9 +17,10 @@ public class FileWritingService {
     static {
         try {
             Files.createDirectories(logFilePath.getParent());
-            if (!Files.exists(logFilePath))
-                logFilePath = Path.of(logFilePath.toFile() + ".txt");
-            Files.createFile(logFilePath);
+            logFilePath = Path.of(logFilePath.toFile() + ".txt");
+            if (!Files.exists(logFilePath)) {
+                Files.createFile(logFilePath);
+            }
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
